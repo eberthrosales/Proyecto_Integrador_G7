@@ -4,7 +4,6 @@ import java.io.Console;
 
 import pe.edu.upeu.dao.CategoriDao;
 import pe.edu.upeu.dao.ClienteDao;
-import pe.edu.upeu.dao.ModeloDao;
 import pe.edu.upeu.dao.ProductoDao;
 import pe.edu.upeu.dao.UsuarioDao;
 import pe.edu.upeu.dao.VentasDao;
@@ -43,11 +42,10 @@ public class MenuOpciones {
                 case 1: new UsuarioDao().crearUsuario(); break;
                 case 2: new CategoriDao().crearCategoria(); break;
                 case 3: new ClienteDao().crearCliente();break;
-                case 4: new ModeloDao().crearModelo();break;
-                case 5: new ProductoDao().crearProducto();break;
-                case 6: new VentasDao().registroVentaGeneral();break;
-                case 7: new VentasDao().reporteVentas();break;
-                case 8: new VentasDao().reporteVentasRangoFecha();break;
+                case 4: new ProductoDao().crearProducto();break;
+                case 5: new VentasDao().registroVentaGeneral();break;
+                case 6: new VentasDao().reporteVentas();break;
+                case 7: new VentasDao().reporteVentasRangoFecha();break;
                 default: System.out.println("Opcion erronea!"); break;
             }
             char continuar=leerT.leer("", "Desea continuar? S=si/N=no")
