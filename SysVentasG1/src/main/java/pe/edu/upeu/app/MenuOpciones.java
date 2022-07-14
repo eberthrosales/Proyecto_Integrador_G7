@@ -33,9 +33,9 @@ public class MenuOpciones {
     public void menuPrincial() {
         System.out.println("********************Bienvenidos al Sistema de Ventas******************");
         String valorX="1=Registrar Usuario\n"+"2=Registrar Categoria\n"+
-                "3=Registrar cliente\n4=Registrar Modelo\n"+
-                "5=Crear Producto\n6=Ventas\n7=Reporte Ventas\n"+
-                "8=Reporte Ventas2\n";
+                "3=Registrar cliente\n"+
+                "4=Crear Producto\n5=Ventas\n6=Reporte Ventas\n"+
+                "7=Reporte Ventas2\n";
         int opciones=0;
         do {
             switch (opciones) {
