@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class ProductoTO {
    public String idProducto, nombreProd; 
-   public String unidMed, idCat, idMod;
-   public double precioUnid, utilidad,stock, cantMayor;
+   public String unidMed, idCat;
+   public double precioUnid, utilidad,stock;
 }

@@ -25,12 +25,10 @@ public class ProductoDao extends AppCrud{
     mostrarCategoria();
     pTo.setIdCat(leerT.leer("", "Seleccione una Categoria"));
     mostrarModelo();
-    pTo.setIdMod(leerT.leer("", "Seleccione un modelo"));
     pTo.setPrecioUnid(leerT.leer(0.0, "ingrese el Precio Unitario"));
     pTo.setUtilidad(leerT.leer(0.0, "Ingrese la utilidad"));
     pTo.setUnidMed(leerT.leer("", "Unidad Medida"));
     pTo.setStock(leerT.leer(0, "Ingrese Cantidad"));
-    pTo.setCantMayor(leerT.leer(0, "Ingrese cantidad para descuento"));
     leerA=new LeerArchivo(TABLA_PRODUCTO);
     agregarContenido(leerA, pTo);
    }
