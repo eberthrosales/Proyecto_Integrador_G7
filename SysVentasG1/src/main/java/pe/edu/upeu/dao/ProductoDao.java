@@ -24,7 +24,6 @@ public class ProductoDao extends AppCrud{
     pTo.setNombreProd(leerT.leer("", "Nombre Producto"));
     mostrarCategoria();
     pTo.setIdCat(leerT.leer("", "Seleccione una Categoria"));
-    mostrarModelo();
     pTo.setPrecioUnid(leerT.leer(0.0, "ingrese el Precio Unitario"));
     pTo.setUtilidad(leerT.leer(0.0, "Ingrese la utilidad"));
     pTo.setUnidMed(leerT.leer("", "Unidad Medida"));
@@ -42,14 +41,4 @@ public class ProductoDao extends AppCrud{
         System.out.println("");
    }
 
-   public void mostrarModelo() {
-    leerA=new LeerArchivo(TABLA_MODELO);
-    Object[][] dataC=listarContenido(leerA);
-    for (int i = 0; i < dataC.length; i++) {
-        System.out.print(dataC[i][0]+"="+dataC[i][1]+", ");
-    }   
-    System.out.println(""); 
-   }
-
-   
 }

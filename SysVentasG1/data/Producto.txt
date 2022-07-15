@@ -1,0 +1,2 @@
+P1	1/4 de pollo con papas	unidad	C1	13.0	2.0	199.0
+P2	parrillada familiar	unidad	C2	50.0	15.0	50.0

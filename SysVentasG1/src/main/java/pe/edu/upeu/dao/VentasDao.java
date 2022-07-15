@@ -94,7 +94,7 @@ public class VentasDao extends AppCrud{
         leerA=new LeerArchivo(TABLA_PRODUCTO); 
         Object[][] dataP=buscarContenido(leerA, 0, vdTX.getIdProducto());
         ProductoTO to=new ProductoTO();
-        to.setStock(Double.parseDouble(String.valueOf(dataP[0][7]))-vdTX.getCantidad());
+        to.setStock(Double.parseDouble(String.valueOf(dataP[0][6]))-vdTX.getCantidad());
         leerA=new LeerArchivo(TABLA_PRODUCTO); 
         editarRegistro(leerA, 0, vdTX.getIdProducto(), to);
     }
@@ -105,8 +105,8 @@ public class VentasDao extends AppCrud{
         leerA=new LeerArchivo(TABLA_PRODUCTO);
         Object[][] dataP=listarContenido(leerA);
         for (int i = 0; i < dataP.length; i++) {
-            if(Double.parseDouble(String.valueOf(dataP[i][7]))>0){
-                System.out.print(dataP[i][0]+"="+dataP[i][1]+"("+dataP[i][7]+")"+",");
+            if(Double.parseDouble(String.valueOf(dataP[i][6]))>0){
+                System.out.print(dataP[i][0]+"="+dataP[i][1]+"("+dataP[i][6]+")"+",");
             }
         }
         System.out.println("");
