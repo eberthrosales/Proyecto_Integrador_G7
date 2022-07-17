@@ -1,0 +1,8 @@
+P1	1/4 de pollo con papas	Unidad	C1	13.0	2.0	198.0
+P2	1/8 de pollo con papas	Unidad	C1	7.5	2.0	299.0
+P3	Parrillada Familiar	Unidad	C2	50.0	15.0	15.0
+P4	Pollo Broaster	Unidad	C2	18.0	5.0	100.0
+P5	Gaseosa 2L	Unidad	C3	8.0	2.0	500.0
+P6	Limonada	Unidad	C3	7.5	2.0	69.0
+P7	Caldo de Gallina	75	C4	10.0	5.0	75.0
+P8	Helado	Unidad	C5	1.0	0.5	99.0
