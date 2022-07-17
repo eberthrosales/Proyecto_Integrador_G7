@@ -67,18 +67,18 @@ public class VentasDao extends AppCrud{
             vdTo.setCantidad(leerT.leer(0, "Ingrese Cantidad"));
 
             vdTo.setIdVenta(vtox.getIdVenta());
-            vdTo.setDescuento(0);
             leerA=new LeerArchivo(TABLA_PRODUCTO);
             Object[][] dataPX=buscarContenido(leerA,0, vdTo.getIdProducto());
-            vdTo.setPrecioUnit(Double.parseDouble(String.valueOf(dataPX[0][5]))+
-            Double.parseDouble(String.valueOf(dataPX[0][6])));
+            vdTo.setPrecioUnit(Double.parseDouble(String.valueOf(dataPX[0][4]))+
+            Double.parseDouble(String.valueOf(dataPX[0][5])));
             vdTo.setTotal(vdTo.getCantidad()*vdTo.getPrecioUnit());
             preciototalX+=vdTo.getTotal();
             leerA=new LeerArchivo(TABLA_DETALLEVENTA);
             agregarContenido(leerA, vdTo);
             
             descontarStockProducto(vdTo);
-            
+            util.clearConsole();
+
             continuar=leerT.leer("", "Desea Agregar mas Productos?S/N")
             .toLowerCase()
             .charAt(0);
@@ -105,8 +105,8 @@ public class VentasDao extends AppCrud{
         leerA=new LeerArchivo(TABLA_PRODUCTO);
         Object[][] dataP=listarContenido(leerA);
         for (int i = 0; i < dataP.length; i++) {
-            if(Double.parseDouble(String.valueOf(dataP[i][6]))>0){
-                System.out.print(dataP[i][0]+"="+dataP[i][1]+"("+dataP[i][6]+")"+",");
+            if(Double.parseDouble(String.valueOf(dataP[i][5]))>0){
+                System.out.print(dataP[i][0]+"="+dataP[i][1]+"("+dataP[i][4]+")"+",");
             }
         }
         System.out.println("");
@@ -154,10 +154,9 @@ public class VentasDao extends AppCrud{
                         vTX.setIdVenta(String.valueOf(dataP[i][0]));
                         vTX.setDni(String.valueOf(dataP[i][1]));
                         vTX.setFecha(String.valueOf(dataP[i][2]));
-                        vTX.setDescuento(Double.parseDouble(String.valueOf(dataP[i][3])));
-                        vTX.setSubprecio(Double.parseDouble(String.valueOf(dataP[i][4])));
-                        vTX.setIgv(Double.parseDouble(String.valueOf(dataP[i][5])));
-                        vTX.setPrecioTotal(Double.parseDouble(String.valueOf(dataP[i][6])));
+                        vTX.setSubprecio(Double.parseDouble(String.valueOf(dataP[i][3])));
+                        vTX.setIgv(Double.parseDouble(String.valueOf(dataP[i][4])));
+                        vTX.setPrecioTotal(Double.parseDouble(String.valueOf(dataP[i][5])));
                         ventasERF[indiceVector]=vTX;
                         indiceVector++;
                 }
@@ -170,7 +169,7 @@ public class VentasDao extends AppCrud{
             for (VentaTO ventaTO : ventasERF) {
                 System.out.printf("%d %s %5s %15s %3.2f %3.2f %3.2f %4.2f %n",
                 (++num), ventaTO.getIdVenta(),ventaTO.getDni(),
-                ventaTO.getFecha(),ventaTO.getDescuento(),ventaTO.getSubprecio(),
+                ventaTO.getFecha(),ventaTO.getSubprecio(),
                 ventaTO.getIgv(),ventaTO.getPrecioTotal()
                 );
             }
@@ -216,10 +215,9 @@ public class VentasDao extends AppCrud{
                    vTo.setDni(dataV[i][1].toString());
                    vTo.setFecha(dataV[i][2].toString());
 
-                   vTo.setDescuento(Double.parseDouble(String.valueOf(dataV[i][3].toString())));
-                   vTo.setSubprecio(Double.parseDouble(String.valueOf(dataV[i][4])));
-                   vTo.setIgv(Double.parseDouble(String.valueOf(dataV[i][5])));
-                   vTo.setPrecioTotal(Double.parseDouble(String.valueOf(dataV[i][6])));
+                   vTo.setSubprecio(Double.parseDouble(String.valueOf(dataV[i][3])));
+                   vTo.setIgv(Double.parseDouble(String.valueOf(dataV[i][4])));
+                   vTo.setPrecioTotal(Double.parseDouble(String.valueOf(dataV[i][5])));
                    
                    dataReal[indiceVector]=vTo;
                    indiceVector++;
@@ -233,13 +231,12 @@ public class VentasDao extends AppCrud{
             .a("===========Reporte Ventas entre "+fechaInit+" Y "+fechaFinal+"============").reset());
             
             util.pintarLine('H', 40);
-            util.pintarTextHeadBody('H', 3, "ID,DNI,Fecha, Descuento,Sub. Total, IGV, Imp.Total");
+            util.pintarTextHeadBody('H', 3, "ID,DNI,Fecha,Sub. Total, IGV, Imp.Total");
             System.out.println("");
             double subtotalX=0,igvX=0, importeTX =0;
             util.pintarLine('H', 40);
             for (VentaTO TOv : dataReal) {
-                String datax=TOv.getIdVenta()+","+TOv.getDni()+","+TOv.getFecha()+","+
-                TOv.getDescuento()+","+TOv.getSubprecio()+","+TOv.getIgv()+","+TOv.getPrecioTotal();
+                String datax=TOv.getIdVenta()+","+TOv.getDni()+","+TOv.getFecha()+","+TOv.getSubprecio()+","+TOv.getIgv()+","+TOv.getPrecioTotal();
 
                 subtotalX+=TOv.getSubprecio(); 
                 igvX+=TOv.getIgv(); 
