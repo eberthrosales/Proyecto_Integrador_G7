@@ -72,7 +72,7 @@
 <manifest>
       <addClasspath>true</addClasspath>
       <classpathPrefix>lib/</classpathPrefix>
-    <mainClass>pe.edu.upeu.app.App</mainClass> 
+    <mainClass>pe.edu.upeu.polleria.App</mainClass> 
 </manifest>
 </archive>
 </configuration>
